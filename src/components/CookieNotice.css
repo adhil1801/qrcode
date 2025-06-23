@@ -1,0 +1,150 @@
+
+.cookie-notice {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card .title {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.card .description {
+  color: black;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.card .prefs {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.card .prefs:hover {
+  color: #1d4ed8;
+}
+
+.card .actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.card button {
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: none;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 120px;
+}
+
+.card .decline {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.card .decline:hover {
+  background-color: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.card .valid {
+  border-color: #059669;
+  color: #059669;
+}
+
+.card .valid:hover {
+  background-color: #059669;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.card div::before, 
+.card div::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transform: rotate(-2deg);
+  border-radius: 8px;
+}
+
+.card div::after {
+  right: 10px;
+  left: unset;
+  transform: rotate(2deg);
+}
+
+@media (max-width: 480px) {
+  .cookie-notice {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    transform: none;
+    width: auto;
+    max-width: none;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .card .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .card button {
+    width: 100%;
+    max-width: none;
+  }
+}
